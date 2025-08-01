@@ -3,17 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LLM Chat App</title>
+    <title>云霖AI - 作文批改器</title>
     <style>
       :root {
-        --primary-color: #f6821f;
-        --primary-hover: #e67e22;
-        --light-bg: #f9fafb;
-        --border-color: #e5e7eb;
-        --text-color: #1f2937;
-        --text-light: #6b7280;
-        --user-msg-bg: #fff2e6;
-        --assistant-msg-bg: #f3f4f6;
+        --primary-color: #4f46e5;
+        --primary-hover: #4338ca;
+        --light-bg: #1f2937;
+        --border-color: #374151;
+        --text-color: #f9fafb;
+        --text-light: #9ca3af;
+        --user-msg-bg: #3b82f6;
+        --assistant-msg-bg: #374151;
+        --background-color: #111827;
       }
 
       * {
@@ -28,6 +29,7 @@
           Cantarell, sans-serif;
         line-height: 1.6;
         color: var(--text-color);
+        background-color: var(--background-color);
         max-width: 800px;
         margin: 0 auto;
         padding: 1rem;
@@ -41,8 +43,13 @@
       }
 
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         color: var(--primary-color);
+      }
+
+      header p {
+        color: var(--text-light);
+        margin-top: 0.5rem;
       }
 
       .chat-container {
@@ -53,13 +60,13 @@
         border: 1px solid var(--border-color);
         border-radius: 8px;
         overflow: hidden;
+        background-color: var(--light-bg);
       }
 
       .chat-messages {
         flex: 1;
         overflow-y: auto;
         padding: 1rem;
-        background-color: var(--light-bg);
       }
 
       .message {
@@ -67,12 +74,14 @@
         padding: 0.75rem;
         border-radius: 8px;
         max-width: 80%;
+        word-wrap: break-word;
       }
 
       .user-message {
         background-color: var(--user-msg-bg);
         align-self: flex-end;
         margin-left: auto;
+        color: white;
       }
 
       .assistant-message {
@@ -84,7 +93,7 @@
         display: flex;
         padding: 0.75rem;
         border-top: 1px solid var(--border-color);
-        background-color: white;
+        background-color: var(--light-bg);
       }
 
       #user-input {
@@ -95,6 +104,8 @@
         font-family: inherit;
         resize: none;
         min-height: 44px;
+        background-color: #111827;
+        color: var(--text-color);
       }
 
       #send-button {
@@ -138,28 +149,28 @@
   </head>
   <body>
     <header>
-      <h1>Cloudflare AI Chat</h1>
-      <p>Powered by Cloudflare Workers AI</p>
+      <h1>云霖AI - 作文批改器</h1>
+      <p>作者: Jiesi Huang</p>
     </header>
 
     <div class="chat-container">
       <div id="chat-messages" class="chat-messages">
         <div class="message assistant-message">
           <p>
-            Hello! I'm an LLM chat app powered by Cloudflare Workers AI. How can
-            I help you today?
+            🎉目前处于测试阶段的英语作文批改器，采用Qwen1.5-7b-chat-awq模型驱动<br />
+            欢迎使用！🙂
           </p>
         </div>
       </div>
 
       <div class="typing-indicator" id="typing-indicator">
-        AI is thinking...
+        正在批改中...
       </div>
 
       <div class="message-input">
         <textarea
           id="user-input"
-          placeholder="Type your message here..."
+          placeholder="输入你的作文..."
           rows="1"
           autofocus
         ></textarea>
