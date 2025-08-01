@@ -90,7 +90,7 @@ async function handleChatRequest(
       MODEL_ID,
       {
         messages,
-        max_tokens: 3072,
+        max_tokens: 2048,
       },
       {
         returnRawResponse: true,
